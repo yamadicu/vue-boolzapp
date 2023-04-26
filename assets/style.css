@@ -3,3 +3,43 @@
     width: 100%;
     background-image: linear-gradient(rgb(0 150 136) 10%,rgba(255, 255, 255, 0.767) 0%);
 }
+.sezione{
+    height: 70px;
+}
+img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    margin-left: 10px;
+}
+aside{
+    background-color: rgb(234 234 234);
+    width: 25vw;
+}
+.icon-color{
+    color: rgb(177 177 177);
+    font-size: 1.3rem;
+    margin-right: 1rem;
+}
+#user{
+    font-size: 1.3rem;
+}
+.icon-notifica{
+    color: #8edafc;
+    font-size: 1.3rem;
+    margin: 5px;
+}
+#allert-notifica{
+    background-color: #8edafc;
+}
+#bg-notifica{
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    top: 15px;
+    left: 20px;
+}
+#text-notifica{
+    top: 10px;
+    left: 70px;
+}
