@@ -3,7 +3,9 @@ const { createApp } = Vue
 createApp({
     data(){
         return{
-            
+
+            chatAttiva: 0,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -168,11 +170,15 @@ createApp({
                 }
                 
             ]
+
         }
     },
     created(){
 
     },
     methods:{
+        cambio(i){
+            this.chatAttiva = i;
+        }
     }
 }).mount('#app')

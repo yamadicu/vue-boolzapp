@@ -20,13 +20,13 @@
 
         <div id="back">
             
-            <div class="container pt-5">
+            <div class="container pt-5 d-flex">
 
                 <!-- SEZIONE CON USER E CHAT -->
                 <aside>
 
                     <!-- SEZIONE CON USER E ICONE UTENTE -->
-                    <div class="d-flex justify-content-between sezione">
+                    <div class="d-flex justify-content-between sezione border">
 
                         <div class="my-auto">
 
@@ -86,9 +86,11 @@
                     </div>
 
                     <!-- LISTA CHAT -->
-                    <div class="border d-flex" 
+                    <div class="border d-flex mini-chat" 
                     v-for="(element, i) in contacts"
-                    :key="i">
+                    :key="i"
+                    :class="(chatAttiva == i) ? 'attiva' : ''" 
+                    @click="cambio(i)">
 
                         <img class="my-2" :src="element.avatar" alt="avatar">
 
@@ -102,6 +104,52 @@
                     </div>
 
                 </aside>
+
+                <main>
+
+                    <!-- SEZIONE CON PRESONA NELLA CHAT -->
+                    <div class="sezione d-flex justify-content-between">
+
+                        <!-- FOTO E NOME CONTATTO -->
+                        <div class="my-auto d-flex">
+
+                            <img :src="contacts[chatAttiva].avatar" alt="chat corrente">
+
+                            <div class="d-flex flex-column">
+
+                                <span class="mx-3">{{contacts[chatAttiva].name}}</span>
+                                <span class="text-secondary">ultimo accesso {{contacts[chatAttiva].date}}</span>
+
+                            </div>
+
+                        </div>
+
+                        <div class="my-auto">
+
+                            <i class="fa-solid fa-magnifying-glass icon-color"></i>
+                            <i class="fa-solid fa-paperclip icon-color"></i>
+                            <i class="fa-solid fa-ellipsis-vertical icon-color"></i>
+
+                        </div>
+
+                    </div>
+
+                    <!-- SEZIONE CON CHAT -->
+                    <div id="chat">
+
+                        <!-- GENERATORE DI MESSAGGI -->
+                        <div 
+                        v-for="(element, index) in contacts[chatAttiva].messages"
+                        class="d-flex"
+                        :class="(element.status == 'sent') ? 'justify-content-end' : 'justify-content-start'">
+
+                            <span :class="(element.status == 'sent') ? 'mandato rounded-4' : 'ricevuto rounded-4'">{{element.message}}</span>
+
+                        </div>
+
+                    </div>
+
+                </main>
 
             </div>
 

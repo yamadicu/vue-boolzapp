@@ -3,8 +3,12 @@
     width: 100%;
     background-image: linear-gradient(rgb(0 150 136) 10%,rgba(255, 255, 255, 0.767) 0%);
 }
+.attiva{
+    background-color: whitesmoke;
+}
 .sezione{
     height: 70px;
+    background-color: rgb(234 234 234);
 }
 img{
     width: 50px;
@@ -42,4 +46,29 @@ aside{
 #text-notifica{
     top: 10px;
     left: 70px;
+}
+.mini-chat{
+    cursor: pointer;
+    background-color: rgb(234 234 234);
+}
+main{
+    width: 60vw;
+}
+#chat{
+    background-image: url(../img/mine.jpg);
+    height: 70vh;
+}
+.mandato{
+    background-color: rgb(213 249 186);
+    justify-content: flex-end;
+    width: 30%;
+    padding: 10px;
+    margin: 5px;
+}
+.ricevuto{
+    background-color: whitesmoke;
+    justify-content: flex-start;
+    width: 30%;
+    padding: 10px;
+    margin: 5px;
 }
