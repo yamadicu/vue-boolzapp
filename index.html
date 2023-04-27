@@ -135,15 +135,41 @@
                     </div>
 
                     <!-- SEZIONE CON CHAT -->
-                    <div id="chat">
+                    <div id="chat" class="d-flex flex-column justify-content-between">
 
                         <!-- GENERATORE DI MESSAGGI -->
-                        <div 
-                        v-for="(element, index) in contacts[chatAttiva].messages"
-                        class="d-flex"
-                        :class="(element.status == 'sent') ? 'justify-content-end' : 'justify-content-start'">
+                        <div>
 
-                            <span :class="(element.status == 'sent') ? 'mandato rounded-4' : 'ricevuto rounded-4'">{{element.message}}</span>
+                            <div 
+                            v-for="(element, index) in contacts[chatAttiva].messages"
+                            class="d-flex"
+                            :class="(element.status == 'sent') ? 'justify-content-end' : 'justify-content-start'">
+                            
+                            <!-- MESSAGGIO -->
+                            <div :class="(element.status == 'sent') ? 'mandato d-flex flex-column rounded-4' : 'ricevuto d-flex flex-column rounded-4'">
+                                {{element.message}}
+                                
+                                <!-- DATA DEL MESSAGGIO -->
+                                <span class="text-secondary data">
+                                    {{element.date}}
+                                </span>
+                                
+                            </div>
+
+                        </div>
+                            
+                        </div>
+
+                        <!-- SCRIVI UN MESSAGGIO -->
+                        <div class="sezione">
+
+                            <div class="py-3 input-group">
+
+                                <i class="fa-regular fa-face-smile icon-color p-2 px-4"></i>
+                                <input type="text" class="form-control" placeholder="scrivi un messaggio">
+                                <i class="fa-solid fa-microphone icon-color p-2 px-4"></i>
+
+                            </div>
 
                         </div>
 
