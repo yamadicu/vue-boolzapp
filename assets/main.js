@@ -193,6 +193,13 @@ createApp({
 
                 this.messaggio = ''
 
+                setTimeout( () =>{
+                    this.contacts[this.chatAttiva].messages.push({
+                        date:'28/04/2023 15:52:00',
+                        message:'ok',
+                        status:'recived'
+                    })
+                },2000)
         }
     }
 }).mount('#app')
