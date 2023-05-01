@@ -6,6 +6,8 @@ createApp({
 
             chatAttiva: 0,
 
+            messaggio: '',
+
             contacts: [
                 {
                     name: 'Michele',
@@ -179,6 +181,18 @@ createApp({
     methods:{
         cambio(i){
             this.chatAttiva = i;
+        },
+        crea(){
+
+                this.contacts[this.chatAttiva].messages.push({
+                    date:'28/04/20023 15:51:00', 
+                    message: this.messaggio,
+                    status: 'sent'
+
+                })
+
+                this.messaggio = ''
+
         }
     }
 }).mount('#app')

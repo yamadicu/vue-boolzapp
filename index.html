@@ -105,6 +105,7 @@
 
                 </aside>
 
+                <!-- PARTE COI MESSAGGI -->
                 <main>
 
                     <!-- SEZIONE CON PRESONA NELLA CHAT -->
@@ -166,7 +167,7 @@
                             <div class="py-3 input-group">
 
                                 <i class="fa-regular fa-face-smile icon-color p-2 px-4"></i>
-                                <input type="text" class="form-control" placeholder="scrivi un messaggio">
+                                <input type="text" class="form-control" placeholder="scrivi un messaggio" v-model="messaggio" @keyUp.enter="crea">
                                 <i class="fa-solid fa-microphone icon-color p-2 px-4"></i>
 
                             </div>
