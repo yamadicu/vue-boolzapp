@@ -4,9 +4,6 @@ createApp({
     data(){
         return{
 
-            chatAttiva: 0,
-
-            messaggio: '',
 
             contacts: [
                 {
@@ -171,17 +168,25 @@ createApp({
                     ],
                 }
                 
-            ]
+            ],
 
+            chatAttiva: 0,
+
+            cercaUtente:'',
+
+            messaggio: ''
         }
     },
     created(){
 
     },
     methods:{
+        // cambia chat in base a quale viene schiacciata
         cambio(i){
-            this.chatAttiva = i;
+            this.chatAttiva = i
         },
+
+        // crea messaggio con risposta dopo 2 secondi
         crea(){
 
                 this.contacts[this.chatAttiva].messages.push({
@@ -200,6 +205,20 @@ createApp({
                         status:'recived'
                     })
                 },2000)
+        },
+        
+
+        cerca(){
+
+            console.log(this.cercaUtente);
+            this.contacts.forEach( (element) => {
+                if( element.name.toLowerCase().includes(this.cercaUtente.toLowerCase())){
+                    element.visible = true
+                }else{
+                    element.visible = false
+                }
+            })
         }
+
     }
 }).mount('#app')

@@ -75,7 +75,10 @@
 
                                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
 
-                                    <input type="text" class="form-control" placeholder="cerca o inizia una nuova chat" aria-label="Username" aria-describedby="basic-addon1">
+                                    <input 
+                                    type="text"
+                                    v-model="cercaUtente" 
+                                    @keyUp="cerca" class="form-control" placeholder="cerca o inizia una nuova conversazione" aria-label="Username" aria-describedby="basic-addon1">
 
                                 </div>
 
@@ -86,11 +89,13 @@
                     </div>
 
                     <!-- LISTA CHAT -->
-                    <div class="border d-flex mini-chat" 
+                    <div 
+                    class="border d-flex mini-chat" 
                     v-for="(element, i) in contacts"
                     :key="i"
-                    :class="(chatAttiva == i) ? 'attiva' : ''" 
-                    @click="cambio(i)">
+                    :class="element.visible ? 'd-flex' : 'd-none' "
+                    @click="cambio(i)"
+                    >
 
                         <img class="my-2" :src="element.avatar" alt="avatar">
 
@@ -108,7 +113,7 @@
                 <!-- PARTE COI MESSAGGI -->
                 <main>
 
-                    <!-- SEZIONE CON PRESONA NELLA CHAT -->
+                    <!-- SEZIONE CON PERSONA NELLA CHAT -->
                     <div class="sezione d-flex justify-content-between">
 
                         <!-- FOTO E NOME CONTATTO -->
@@ -147,17 +152,17 @@
                             :class="(element.status == 'sent') ? 'justify-content-end' : 'justify-content-start'">
                             
                             <!-- MESSAGGIO -->
-                            <div :class="(element.status == 'sent') ? 'mandato d-flex flex-column rounded-4' : 'ricevuto d-flex flex-column rounded-4'">
-                                {{element.message}}
+                                <div :class="(element.status == 'sent') ? 'mandato d-flex flex-column rounded-4' : 'ricevuto d-flex flex-column rounded-4'">
+                                    {{element.message}}
                                 
-                                <!-- DATA DEL MESSAGGIO -->
-                                <span class="text-secondary data">
-                                    {{element.date}}
-                                </span>
+                                    <!-- DATA DEL MESSAGGIO -->
+                                    <span class="text-secondary data">
+                                        {{element.date}}
+                                    </span>
                                 
-                            </div>
+                                </div>
 
-                        </div>
+                            </div>
                             
                         </div>
 
